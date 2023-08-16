@@ -28,6 +28,8 @@ class CreditCard:
         return True
 
     def mk_payment(self, bill):
+        if bill < 0:
+            raise ValueError("cannot process this transaction")
         self._balance -= bill
         return True
 
@@ -40,6 +42,6 @@ print(sayeed_card.purchase(250000))
 print(sayeed_card.get_balance())
 print(sayeed_card.purchase(250000))
 print(sayeed_card.get_balance())
-
 print(sayeed_card.mk_payment(250000))
+print(sayeed_card.mk_payment(100000))
 print(sayeed_card.get_balance())
